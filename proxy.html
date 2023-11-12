@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Proxy Test</title>
+</head>
+    <style>
+        body {
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            background-color: lightblue;
+            text-align: center;
+            border: lightblue 2px solid;
+            border-radius: 10px;
+        }
+        input {
+            font-size: 20px;
+            background-color: rgb(250, 248, 248);
+            border: lightskyblue 2px solid;
+            border-radius: 10px;
+        }
+        input::placeholder {
+            color: lightskyblue;
+        }
+        input:focus {
+            border: lightskyblue 2px solid;
+            border-radius: 10px;
+        }
+        label {
+            font-size: 25px;
+            font-weight: normal;
+            font-family: "华文行楷";
+            border: lightskyblue 2px solid;
+            border-radius: 5px;
+            background-color: rgb(250, 248, 248);
+        }
+        button {
+            font-size: 20px;
+            font-family: "Comic Sans MS";
+            border: lightskyblue 2px solid;
+            border-radius: 10px;
+        }
+    </style>
+<body>
+    <form id="myForm" target="_blank">
+        <label for="urlInput">URL</label>
+        <input type="text" id="urlInput" name="urlInput" placeholder="请输入您要跳转的网址">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    
+    <script>
+    function submitForm() {
+        // 获取输入框的值
+        var userInput = document.getElementById('urlInput').value;
+    
+        // 构建目标 URL
+        var targetUrl = 'https://p.19yy.asia/proxy/' + encodeURIComponent(userInput);
+    
+        // 设置表单的 action 属性为目标 URL
+        document.getElementById('myForm').action = targetUrl;
+    
+        // 提交表单
+        document.getElementById('myForm').submit();
+    }
+    </script>    
+</body>
+</html>
